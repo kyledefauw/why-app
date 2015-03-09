@@ -10,11 +10,36 @@ class LifeVenturesController < ApplicationController
 
   def create
     @life_venture = LifeVenture.new(life_venture_params)
-  end
+    if @life_venture.save
+      flash[:notice] = 'Congrats on adding a new life venture!'
+      redirect_to life_ventures_path
+    else
+      render :new
+    end
+   end
+
+   def edit
+     @life_venture = LifeVenture.find(params[:id])
+   end
+
+   def show
+     @life_venture = LifeVenture.find(params[:id])
+   end
+
+   def update
+     @life_venture = LifeVenture.find(params[:id])
+   end
+
+   def destroy
+     life_venture = LifeVenture.find(params[:id])
+     life_venture.delete
+     redirect_to life_ventures_path, notice: 'Life venture deleted'
+   end
 
   private
 
   def life_ventures_params
     params.require(:life_venture).permit(:name, :category)
+  end
 
 end
