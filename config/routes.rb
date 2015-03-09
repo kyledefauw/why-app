@@ -2,9 +2,8 @@ Rails.application.routes.draw do
 
   root 'welcome#index'
 
-  resources :lifeventures do
-    resources :reasons do
-    end
+  resources :life_ventures do
+    resources :reasons
   end
 
   get 'sign-up', to: 'registrations#new'
