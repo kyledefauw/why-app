@@ -1,0 +1,25 @@
+Sign Up Form
+
+<%= form_for @user, url: sign_up_path do |f| %>
+
+  <%= f.label :first_name %>
+  <%= f.text_field :first_name %>
+  <br>
+  <%= f.label :last_name %>
+  <%= f.text_field :last_name %>
+  <br>
+  <%= f.label :date_of_birth %>
+  <%= f.text_field :date_of_birth, placeholder: "mm/dd/yyyy" %>
+  <br>
+  <%= f.label :email %>
+  <%= f.text_field :email %>
+  <br>
+  <%= f.label :password %>
+  <%= f.text_field :password %>
+  <br>
+  <%= f.label :password_confirmation %>
+  <%= f.text_field :password_confirmation %>
+  <br>
+  <%= f.submit "Create Account" %>
+
+<% end %>
