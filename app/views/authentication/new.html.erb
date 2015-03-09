@@ -1,0 +1,25 @@
+Sign In
+
+<%= form_tag sign_in_path do %>
+
+  <%= label_tag :first_name %>
+  <%= text_field_tag :first_name %>
+  <br>
+  <%= label_tag :last_name %>
+  <%= text_field_tag :last_name %>
+  <br>
+  <%= label_tag :date_of_birth %>
+  <%= text_field_tag :date_of_birth %>
+  <br>
+  <%= label_tag :email %>
+  <%= email_field_tag :email %>
+  <br>
+  <%= label_tag :password %>
+  <%= password_field_tag :password %>
+  <br>
+  <%= label_tag :password_confirmation %>
+  <%= password_field_tag :password_confirmation %>
+  <br>
+  <%= f.submit_tag "Sign In" %>
+
+<% end %>
