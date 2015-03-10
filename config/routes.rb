@@ -2,6 +2,8 @@ Rails.application.routes.draw do
 
   root 'welcome#index'
 
+  resources :users, only: [:edit, :show, :index, :update]
+
   resources :life_ventures do
     resources :reasons
   end
