@@ -1,5 +1,7 @@
 class ReasonsController < ApplicationController
 
+  before_action :find_and_set_project
+
   def index
     @reasons = @life_venture.reasons
   end
@@ -46,6 +48,10 @@ class ReasonsController < ApplicationController
 
   def reason_params
     params.require(:reason).permit.(:name, :priority, :life_venture_id)
+  end
+
+  def find_and_set_project
+    @life_venture = LifeVenture.find(params[:life_venture_id])
   end
 
 end
