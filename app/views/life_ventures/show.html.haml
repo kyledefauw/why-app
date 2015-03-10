@@ -5,16 +5,12 @@
 
 %table
   %thead
-    %tr
-      %th
-        Name
-      %th
-        Category
-
-
+  %tr
+    %th Name
+    %th Category
+    %th
   %tbody
-    %tr
-      %td
-        = @life_venture.name
-      %td
-        = @life_venture.category
+  %tr
+    %td= @life_venture.name
+    %td= @life_venture.category
+    %td.pull-right=link_to "New Reason", life_venture_reasons_path(@life_venture), class: "btn btn-success" 

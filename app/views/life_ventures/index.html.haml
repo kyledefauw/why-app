@@ -3,22 +3,14 @@
     = link_to 'New Venture', new_life_venture_path, class: "btn btn-success"
   %h1 Life Ventures
 
+-@life_ventures.each do |life_venture|
 
-- @life_ventures.each do |life_venture|
-
-%table
-  %thead
+  %table
+    %thead
     %tr
-      %th
-        Name
-      %th
-        Category
-
-  &tbody
+      %th Name
+      %th Category
+    &tbody
     %tr
-      %td
-        = link_to life_venture.name, life_venture_path(life_venture)
-      %td
-        = life_venture.category
-
-- end
+      %td=link_to life_venture.name, life_venture_path(life_venture)
+      %td=life_venture.category
