@@ -1,4 +1,7 @@
 = form_for @life_venture, html: {class: "form-horizontal"} do |f|
+
+  = render partial: "/shared/errors", locals:{object: @life_venture}
+
   = f.label :name
   = f.text_field :name
   %br
