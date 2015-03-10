@@ -5,7 +5,7 @@ class LifeVenturesController < ApplicationController
   end
 
   def new
-    @life_venture = LifeVenture.all
+    @life_venture = LifeVenture.new
   end
 
   def create
@@ -28,6 +28,12 @@ class LifeVenturesController < ApplicationController
 
    def update
      @life_venture = LifeVenture.find(params[:id])
+     if @life_venture.update(life_venture_params)
+       flash[:notice] = 'Venture successfully updated'
+       redirect_to life_ventures_path
+     else
+       render :edit
+     end
    end
 
    def destroy
@@ -38,7 +44,7 @@ class LifeVenturesController < ApplicationController
 
   private
 
-  def life_ventures_params
+  def life_venture_params
     params.require(:life_venture).permit(:name, :category)
   end
 
