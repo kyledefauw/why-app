@@ -1,6 +1,6 @@
 .page-header
   .pull-right
-    = link_to 'Edit Venture', edit_life_venture_path(@life_venture), class: "btn btn-success"
+    = link_to 'Edit Venture', edit_life_venture_path(@life_venture), class: "btn btn-info"
   %h1 Life Ventures
 
 %table
@@ -13,4 +13,4 @@
   %tr
     %td= @life_venture.name
     %td= @life_venture.category
-    %td.pull-right=link_to "New Reason", life_venture_reasons_path(@life_venture), class: "btn btn-success" 
+    %td.pull-right=link_to "New Reason", new_life_venture_reason_path(@life_venture), class: "btn btn-success"
