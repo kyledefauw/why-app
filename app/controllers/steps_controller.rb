@@ -3,35 +3,35 @@ class StepsController < ApplicationController
   before_action :find_and_set_step
 
   def index
-    @steps = LifeVenture.steps.all
+    @steps = @life_venture.steps
   end
 
   def new
-    @step = LifeVenture.steps.new
+    @step = @life_venture.steps.new
   end
 
   def create
-    @step = LifeVenture.steps.new(step_params)
+    @step = @life_venture.steps.new(step_params)
     if @step.save
-      flash[:notice] = "Goal successfully created"
-      redirect_to life_venture_step_path(@life_venture, @step)
+      flash[:notice] = "Step successfully created"
+      redirect_to life_venture_steps_path
     else
       render :new
     end
   end
 
   def edit
-    @step = LifeVenture.steps.find(params[:id])
+    @step = @life_venture.steps.find(params[:id])
   end
 
   def show
-    @step = LifeVenture.steps.find(params[:id])
+    @step = @life_venture.steps.find(params[:id])
   end
 
   def update
     @step = Step.find(params[:id])
     if @step.update(step_params)
-      flash[:notice] = "step successfully updated"
+      flash[:notice] = "Step successfully updated"
       redirect_to life_venture_steps_path
     else
       render :edit
@@ -39,10 +39,10 @@ class StepsController < ApplicationController
   end
 
   def destroy
-    step = LifeVenture.steps.find(params[:id])
+    step = @life_venture.steps.find(params[:id])
     step.destroy
     flash[:error] = "Step was deleted"
-    redirect_to life_venture_steps_path
+    redirect_to life_venture_step_path(@life_venture, @step)
   end
 
   private

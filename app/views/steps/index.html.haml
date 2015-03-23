@@ -1,2 +1,18 @@
 .page-header
+  .pull-right
+    =link_to "New Step", new_life_venture_step_path(@life_venture), class: "btn btn-success"
   %h1 List of Steps
+
+%table
+  %tr
+    %th Description
+    %th Due Date
+    %th Progress
+
+- @steps.each do |step|
+
+  %tr
+    %td= step.name
+    %td= step.due_date
+    %td progess bar to come
+    %br
