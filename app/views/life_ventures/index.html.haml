@@ -11,8 +11,9 @@
       %th.col-md-4 Name
       %th.col-md-4 Category
       %th.col-md-4 # of Reasons
+      %th.col-md-4 # of Steps
     %tbody
     %tr
       %td.col-md-4=link_to life_venture.name, life_venture_path(life_venture)
       %td.col-md-4=life_venture.category
-      %td.col-md-4=link_to life_venture.reasons.count, life_venture_reason_path(life_venture)
+      %td.col-md-4=link_to life_venture.reasons.count, life_venture_reasons_path(life_venture)
