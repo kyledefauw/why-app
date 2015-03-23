@@ -1,7 +1,7 @@
 !!! HTML
 %html
 %head
-  %titleWhyApp
+  %title WhyApp
   = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
   = javascript_include_tag 'application', 'data-turbolinks-track' => true
   = csrf_meta_tags
@@ -37,4 +37,5 @@
 
     %footer
       %hr
-      Copyright @ Why, Inc. 2015
+      = link_to "Life Ventures", life_ventures_path
+      | Copyright @ Why, Inc. 2015
