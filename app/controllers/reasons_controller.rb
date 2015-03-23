@@ -14,7 +14,7 @@ class ReasonsController < ApplicationController
     @reason = @life_venture.reasons.new(reason_params)
     if @reason.save
       flash[:notice] = 'Reason successfully created'
-      redirect_to life_venture_reason_path(@life_venture, @reason)
+      redirect_to life_venture_reasons_path
     else
       render :new
     end
@@ -32,7 +32,7 @@ class ReasonsController < ApplicationController
     @reason = @life_venture.reasons.find(params[:id])
     if @reason.update(reason_params)
       flash[:notice] = 'Reason Successfully added!'
-      redirect_to life_venture_reasons_path
+      redirect_to life_venture_reason_path(@life_venture, @reason)
     else
       render :edit
     end

@@ -1,2 +1,16 @@
 .page-header
+  .pull-right
+    =link_to "New Reason", new_life_venture_reason_path(@life_venture), class: "btn btn-success"
   %h1 List of Reasons
+
+%table
+  %tr
+    %th Description
+    %th Priority
+
+- @reasons.each do |reason|
+
+  %tr
+    %td= reason.name
+    %td= reason.priority
+    %br
