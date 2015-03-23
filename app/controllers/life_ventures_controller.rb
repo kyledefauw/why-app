@@ -38,8 +38,9 @@ class LifeVenturesController < ApplicationController
 
    def destroy
      life_venture = LifeVenture.find(params[:id])
-     life_venture.delete
-     redirect_to life_ventures_path, notice: 'Life venture deleted'
+     life_venture.destory
+     flash[:error] = "Life Venture was deleted"
+     redirect_to life_ventures_path
    end
 
   private

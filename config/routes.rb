@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   resources :life_ventures do
     resources :reasons
+    resources :goals
   end
 
   get 'sign-up', to: 'registrations#new'

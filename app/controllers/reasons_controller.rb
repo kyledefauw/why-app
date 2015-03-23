@@ -1,9 +1,9 @@
 class ReasonsController < ApplicationController
 
-  before_action :find_and_set_project
+  before_action :find_and_set_reason
 
   def index
-    @reasons = @life_venture.reasons
+    @reasons = @life_venture.reasons.all
   end
 
   def new
@@ -39,8 +39,9 @@ class ReasonsController < ApplicationController
   end
 
   def destroy
-    reason = @life_venture.reason.find(params[:id])
+    reason = @life_venture.reasons.find(params[:id])
     reason.destroy
+    flash[:error] = "Reason was deleted"
     redirect_to life_venture_reasons_path
   end
 
@@ -50,7 +51,7 @@ class ReasonsController < ApplicationController
     params.require(:reason).permit(:name, :priority, :life_venture_id)
   end
 
-  def find_and_set_project
+  def find_and_set_reason
     @life_venture = LifeVenture.find(params[:life_venture_id])
   end
 

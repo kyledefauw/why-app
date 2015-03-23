@@ -29,6 +29,10 @@
       %p.alert.alert-success
         = flash[:notice]
 
+    - if flash[:error]
+      %p.alert.alert-danger
+        = flash[:error]
+
     = yield
 
     %footer
