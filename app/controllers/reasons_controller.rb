@@ -14,7 +14,7 @@ class ReasonsController < ApplicationController
     @reason = @life_venture.reasons.new(reason_params)
     if @reason.save
       flash[:notice] = 'Reason successfully created'
-      redirect_to
+      redirect_to life_venture_reason_path(@life_venture, @reason)
     else
       render :new
     end
@@ -47,7 +47,7 @@ class ReasonsController < ApplicationController
   private
 
   def reason_params
-    params.require(:reason).permit.(:name, :priority, :life_venture_id)
+    params.require(:reason).permit(:name, :priority, :life_venture_id)
   end
 
   def find_and_set_project
