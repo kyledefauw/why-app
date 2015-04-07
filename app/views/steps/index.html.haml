@@ -3,22 +3,20 @@
     =link_to "New Step", new_life_venture_step_path(@life_venture), class: "btn btn-success"
   %h1 List of Steps
 
-%table
-  %tr
-    %th Description
-    %th Due Date
-    %th Progress
+%ol.breadcrumb
+  %li= link_to "Life Ventures", life_ventures_path
+  %li= link_to @life_venture.name, life_venture_path(@life_venture)
+  %li Steps
 
-- @steps.each do |step|
+%table.table.table-striped
+  %thead
+    %tr
+      %th Description
+      %th Due Date
+      %th Progress
 
-  %tr
-    %td= link_to step.name, life_venture_step_path(@life_venture, step)
-    %td= step.due_date
-    %td.progress
-      .progress-bar.progress-bar-success#width: 35%
-      %span.sr-only 35% Complete (success)
-      .progress-bar.progress-bar-warning.progress-bar-striped, style="width: 20%
-      %span.sr-only 20% Complete (warning)
-      .progress-bar.progress-bar-danger, style="width: 10%
-      %span.sr-only 10% Complete (danger)
-    %br
+  - @steps.each do |step|
+    %tr
+      %td= link_to step.name, life_venture_step_path(@life_venture, step)
+      %td= step.due_date
+      %td progress

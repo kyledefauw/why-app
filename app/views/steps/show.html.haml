@@ -3,4 +3,10 @@
     = link_to 'Edit Step', edit_life_venture_step_path(@life_venture, @step), class: "btn btn-info"
   %h1 Step
 
+%ol.breadcrumb
+  %li= link_to "Life Ventures", life_ventures_path
+  %li= link_to @life_venture.name, life_venture_path(@life_venture)
+  %li= link_to "Steps", life_venture_steps_path
+  %li= @step.name
+
 = @step.name
