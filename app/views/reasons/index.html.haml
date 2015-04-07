@@ -3,14 +3,19 @@
     =link_to "New Reason", new_life_venture_reason_path(@life_venture), class: "btn btn-success"
   %h1 List of Reasons
 
-%table
-  %tr
-    %th Description
-    %th Priority
+%ol.breadcrumb
+  %li= link_to "Life Ventures", life_ventures_path
+  %li= link_to @life_venture.name, life_venture_path(@life_venture)
+  %li Reasons
 
-- @reasons.each do |reason|
+%table.table.table-striped
+  %thead
+    %tr
+      %th Description
+      %th Priority
 
-  %tr
-    %td= link_to reason.name, life_venture_reason_path(@life_venture, reason)
-    %td= reason.priority
-    %br
+  %tbody
+    - @reasons.each do |reason|
+      %tr
+        %td= link_to reason.name, life_venture_reason_path(@life_venture, reason)
+        %td= reason.priority
