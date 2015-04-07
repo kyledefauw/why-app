@@ -3,18 +3,18 @@
     = link_to 'New Venture', new_life_venture_path, class: "btn btn-success"
   %h1 Life Ventures
 
--@life_ventures.each do |life_venture|
-
-  %table
-    %thead
+%table.table.table-striped
+  %thead
     %tr
       %th.col-md-4 Name
       %th.col-md-4 Category
-      %th.col-md-4 # of Reasons
-      %th.col-md-4 # of Steps
-    %tbody
-    %tr
-      %td.col-md-4=link_to life_venture.name, life_venture_path(life_venture)
-      %td.col-md-4=life_venture.category
-      %td.col-md-4=link_to life_venture.reasons.count, life_venture_reasons_path(life_venture)
-      %td.col-md-4=link_to life_venture.steps.count, life_venture_steps_path(life_venture)
+      %th.col-md-3 # of Reasons
+      %th.col-md-3 # of Steps
+
+  %tbody
+    -@life_ventures.each do |life_venture|
+      %tr
+        %td.col-md-4= link_to life_venture.name, life_venture_path(life_venture)
+        %td.col-md-4= life_venture.category
+        %td.col-md-3= link_to life_venture.reasons.count, life_venture_reasons_path(life_venture)
+        %td.col-md-3= link_to life_venture.steps.count, life_venture_steps_path(life_venture)

@@ -1,7 +1,12 @@
 class LifeVenturesController < ApplicationController
 
   def index
-    @life_ventures = LifeVenture.all
+    @life_ventures =
+      if current_user
+        LifeVenture.where(user_id: current_user.id)
+      else
+        []
+      end
   end
 
   def new

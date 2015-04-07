@@ -9,7 +9,6 @@
       %th Name
       %th Category
   %tbody
-    -@life_venture.reasons.each do |reason|
-      %tr
-        %td= reason.name
-        %td= reason.priority
+    %tr
+      %td= @life_venture.name
+      %td= @life_venture.category
