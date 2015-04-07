@@ -1,0 +1,21 @@
+.page-header
+  %h2 Sign into - Why is the Way
+
+
+
+.form-horizontal
+  =form_tag sign_in_path do
+
+    .form-group
+      =label_tag :email, nil, class: 'col-sm-2 control-label'
+      .col-sm-6
+        =email_field_tag :email, class: 'form-control'
+
+    .form-group
+      =label_tag :password, nil, class:"col-sm-2 control-label"
+      .col-sm-6
+        =password_field_tag :password, class: "form-control"
+
+    .form-group
+      .col-sm-offset-2.col-sm-10
+        =submit_tag 'Sign In', class: 'btn btn-default'

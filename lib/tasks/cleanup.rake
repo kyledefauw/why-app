@@ -1,5 +1,5 @@
 namespace :cleanup do
-  describe 'Fix invalid data'
+  desc 'Fix invalid data'
   task data: :environment do
     Reason.where.not(life_venture_id: LifeVenture.pluck(:id)).destroy_all
     Step.where.not(life_venture_id: LifeVenture.pluck(:id)).destroy_all
