@@ -9,6 +9,10 @@ Rails.application.routes.draw do
     resources :steps
   end
 
+  resources :steps do
+    resources :obstacles
+  end
+
   get 'sign-up', to: 'registrations#new'
   post 'sign-up', to: 'registrations#create'
   get 'sign-in', to: 'authentication#new'
