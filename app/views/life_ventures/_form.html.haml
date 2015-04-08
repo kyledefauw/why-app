@@ -2,10 +2,16 @@
 
   = render partial: "/shared/errors", locals:{object: @life_venture}
 
-  = f.label :name
-  = f.text_field :name
-  %br
-  = f.label :category
-  = f.text_field :category
-  %br
-  = f.submit
+  .row
+    .well.col-md-offset-2.col-md-8
+      .form-group
+        = f.label :name, class: "col-md-4 control-label"
+        .col-md-8
+          = f.text_field :name, class: "form-control"
+      .form-group
+        = f.label :category, class: "col-md-4 control-label"
+        .col-md-4
+          = f.collection_select(:category, LifeVenture.categories.keys, :to_s, :to_s, {}, {class: "form-control"})
+      .form-group
+        .col-md-offset-4.col-md-4
+          = f.submit class: "btn btn-success form-control"

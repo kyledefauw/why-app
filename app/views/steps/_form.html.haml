@@ -1,9 +1,20 @@
 = form_for [@life_venture, @step], html: {class: "form-horizontal"} do |f|
   = render partial: "/shared/errors", locals:{object: @step}
-  = f.label :name
-  = f.text_field :name
-  %br
-  = f.label :due_date
-  = f.date_field :due_date
-  %br
-  = f.submit
+
+  .row
+    .well.col-md-offset-2.col-md-8
+      .form-group
+        = f.label :name, class: "col-md-4 control-label"
+        .col-md-8
+          = f.text_field :name, class: "form-control"
+      .form-group
+        = f.label :due_date, class: "col-md-4 control-label"
+        .col-md-4
+          = f.date_field :due_date, class: "form-control"
+      .form-group
+        = f.label :complete, class: "col-md-4 control-label"
+        .col-md-8
+          = f.check_box :complete
+      .form-group
+        .col-md-offset-4.col-md-4
+          = f.submit class: "btn btn-success form-control"
