@@ -18,5 +18,5 @@
   - @steps.each do |step|
     %tr
       %td= link_to step.name, life_venture_step_path(@life_venture, step)
-      %td= step.due_date
+      %td= step.due_date.strftime("%B %d, %Y")
       %td progress
