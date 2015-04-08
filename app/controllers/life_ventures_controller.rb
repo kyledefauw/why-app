@@ -7,6 +7,7 @@ class LifeVenturesController < ApplicationController
       else
         []
       end
+      # @life_ventures = LifeVenture.find(:all, :conditions => {:user_id => session[:user_id]})
   end
 
   def new
@@ -14,7 +15,7 @@ class LifeVenturesController < ApplicationController
   end
 
   def create
-    @life_venture = LifeVenture.new(life_venture_params)
+    @life_venture = LifeVenture.new(life_venture_params.merge(user_id: current_user.id))
     if @life_venture.save
       flash[:notice] = 'Congrats on adding a new life venture!'
       redirect_to life_ventures_path
