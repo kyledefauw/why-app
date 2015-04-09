@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
 
-  root 'welcome#index'
+  root 'static_pages#index'
+
+  get '/about', to: 'static_pages#about'
+  get '/all_obstacles', to: 'static_pages#all_obstacles'
+
 
   resources :users, only: [:edit, :show, :index, :update]
 
@@ -12,6 +16,11 @@ Rails.application.routes.draw do
   resources :steps do
     resources :obstacles
   end
+
+  resources :obstacles do
+    resources :comments
+  end
+
 
   get 'sign-up', to: 'registrations#new'
   post 'sign-up', to: 'registrations#create'

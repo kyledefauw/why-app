@@ -1,0 +1,28 @@
+.page-header
+  =link_to "Edit", edit_step_obstacle_path(@step, @obstacle), class: "btn btn-info pull-right"
+  -if @step.complete == true
+    %s%h1= @step.name
+  -else
+    %h1= @step.name
+
+%h3 Suggestions
+
+-@obstacle.comments.each do |comment|
+  %p
+    .row
+      .col-md-3
+        - if comment.user
+          = link_to comment.user.full_name, user_path(comment.user_id)
+        -else
+          %p.text-muted
+        %p.text-muted
+          = time_ago_in_words(comment.created_at) + " ago"
+      .col-md-9.pull-right
+        =comment.message
+
+= form_for [@obstacle, @comment] do |f|
+  .form-group
+    .col-md-offset-3.col-md-9
+      .form-group
+        =f.text_area :message, class: "form-control"
+      = f.submit "Add Comment", class: "btn btn-primary"

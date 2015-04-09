@@ -1,0 +1,22 @@
+.page-header
+  .pull-right
+    =link_to "New Obstacle", new_step_obstacle_path(@step), class: "btn btn-success"
+  %h1= "List of Obstacles for #{@step.name}"
+
+%ol.breadcrumb
+  %li Obstacle
+
+%table.footable
+  %thead
+    %tr
+      %th Description
+      %th
+      %th
+
+  %tbody
+    - @obstacles.each do |obstacle|
+      %tr
+        %td= link_to obstacle.name, step_obstacle_path(@step, obstacle)
+        %span(class="badge")=obstacle.comments.count
+        %td= link_to "Edit", edit_step_obstacle_path(@step, obstacle)
+        %td= link_to "", step_obstacle_path(@step, obstacle), method: :delete, class:"glyphicon glyphicon-remove"
