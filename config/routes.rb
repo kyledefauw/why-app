@@ -2,15 +2,15 @@ Rails.application.routes.draw do
 
   root 'static_pages#index'
 
-  get '/about', to: 'static_pages#about'
+  get '/purpose', to: 'static_pages#purpose'
   get '/all_obstacles', to: 'static_pages#all_obstacles'
 
 
   resources :users, only: [:edit, :show, :index, :update]
 
   resources :life_ventures do
-    resources :reasons
-    resources :steps
+    resources :reasons, except: [:show]
+    resources :steps, except: [:show]
   end
 
   resources :steps do

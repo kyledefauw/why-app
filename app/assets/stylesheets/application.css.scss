@@ -19,7 +19,6 @@
  @import "themes/footable.metro";
  @import "style";
  @import "multiaccordian.jquery";
- @import "multiaccordian.jquery.min";
 
 p.purpose {
   color: blue;
@@ -31,4 +30,97 @@ em.purpose {
   color: green;
   font-family: Copperplate;
   font-size: 16px;
+}
+
+td.col-md-3.lvshow {
+  font-family: Copperplate;
+  font-size: 22px;
+}
+
+h1 {
+  color: #CCCC00;
+}
+
+h3 {
+  color: #CCCC00;
+}
+
+li {
+  color: #CCCC00;
+}
+body {
+  background-image: url(1797263.jpg);
+  background-size: cover;
+}
+
+.green {
+  color: green;
+}
+
+.pl {
+  color: #CCCC00;
+}
+
+.navbar-default {
+  background-color: #cccc00;
+  border-color: #c0392b;
+}
+.navbar-default .navbar-brand {
+  color: #14434f;
+}
+.navbar-default .navbar-brand:hover, .navbar-default .navbar-brand:focus {
+  color: #cc0000;
+}
+.navbar-default .navbar-text {
+  color: #14434f;
+}
+.navbar-default .navbar-nav > li > a {
+  color: #14434f;
+}
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+  color: #cc0000;
+}
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+  color: #cc0000;
+  background-color: #c0392b;
+}
+.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
+  color: #cc0000;
+  background-color: #c0392b;
+}
+.navbar-default .navbar-toggle {
+  border-color: #c0392b;
+}
+.navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
+  background-color: #c0392b;
+}
+.navbar-default .navbar-toggle .icon-bar {
+  background-color: #14434f;
+}
+.navbar-default .navbar-collapse,
+.navbar-default .navbar-form {
+  border-color: #14434f;
+}
+.navbar-default .navbar-link {
+  color: #14434f;
+}
+.navbar-default .navbar-link:hover {
+  color: #cc0000;
+}
+
+@media (max-width: 767px) {
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a {
+    color: #14434f;
+  }
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
+    color: #cc0000;
+  }
+  .navbar-default .navbar-nav .open .dropdown-menu > .active > a, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+    color: #cc0000;
+    background-color: #c0392b;
+  }
+}
+
+blue {
+  color: blue;
 }

@@ -4,7 +4,10 @@
   %h1= "List of Obstacles for #{@step.name}"
 
 %ol.breadcrumb
-  %li Obstacle
+  %li= link_to "Life Ventures", life_ventures_path
+  %li= link_to @life_venture.name, life_venture_path(@life_venture)
+  %li= link_to @life_venture.step.name, life_venture_step_path(@life_venture, @step)
+  %li= @step.obstacle.name
 
 %table.footable
   %thead
@@ -18,5 +21,5 @@
       %tr
         %td= link_to obstacle.name, step_obstacle_path(@step, obstacle)
         %span(class="badge")=obstacle.comments.count
-        %td= link_to "Edit", edit_step_obstacle_path(@step, obstacle)
+        %td= link_to "Edit", edit_step_obstacle_path(@step, obstacle), class: 'btn btn-warning'
         %td= link_to "", step_obstacle_path(@step, obstacle), method: :delete, class:"glyphicon glyphicon-remove"

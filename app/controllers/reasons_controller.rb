@@ -31,7 +31,7 @@ class ReasonsController < ApplicationController
   def update
     @reason = @life_venture.reasons.find(params[:id])
     if @reason.update(reason_params)
-      flash[:notice] = 'Reason Successfully added!'
+      flash[:notice] = 'Reason Successfully updated!'
       redirect_to life_venture_reason_path(@life_venture, @reason)
     else
       render :edit

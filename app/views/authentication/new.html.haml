@@ -1,21 +1,18 @@
-.page-header
-  %h2 Sign into - Why is the Way
+.row
+  .well.col-md-offset-3.col-md-6
+    .form-group.page-header
+      %h1 Sign in - Why is the Way
+
+      - if flash[:failure]
+        %strong
+          %p.text-danger= flash[:failure]
 
 
-
-.form-horizontal
-  =form_tag sign_in_path do
-
-    .form-group
-      =label_tag :email, nil, class: 'col-sm-2 control-label'
-      .col-sm-6
-        =email_field_tag :email, class: 'form-control'
-
-    .form-group
-      =label_tag :password, nil, class:"col-sm-2 control-label"
-      .col-sm-6
-        =password_field_tag :password, class: "form-control"
-
-    .form-group
-      .col-sm-offset-2.col-sm-10
-        =submit_tag 'Sign In', class: 'btn btn-default'
+    = form_tag sign_in_path do
+      .form-group
+        = label_tag :email
+        = email_field_tag :email, 'email@example.com', class: 'form-control'
+      .form-group
+        = label_tag :password
+        = password_field_tag :password, 'password', class: "form-control"
+      = submit_tag 'Sign In', class: 'btn btn-primary'

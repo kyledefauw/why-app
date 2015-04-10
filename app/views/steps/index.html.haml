@@ -25,4 +25,4 @@
       %td= link_to step.obstacles.count, step_obstacles_path(step)
       %td not YET
       %td= link_to 'Edit', edit_life_venture_step_path(@life_venture, step), class: "btn btn-warning pull-right"
-      %td= link_to '', life_venture_steps_path, method: :delete, class:'glyphicon glyphicon-remove'
+      %td= link_to '', life_venture_steps_path(@life_venture, step), method: :delete, class:'glyphicon glyphicon-remove'

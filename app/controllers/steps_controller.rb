@@ -42,7 +42,7 @@ class StepsController < ApplicationController
     step = @life_venture.steps.find(params[:id])
     step.destroy
     flash[:error] = "Step was deleted"
-    redirect_to life_venture_step_path(@life_venture, @step)
+    redirect_to life_venture_steps_path(@life_venture)
   end
 
   private

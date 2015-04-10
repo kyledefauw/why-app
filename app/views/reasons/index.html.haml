@@ -22,4 +22,4 @@
         %td= reason.name
         %td= reason.priority
         %td= link_to 'Edit', edit_life_venture_reason_path(@life_venture, reason), class: "btn btn-warning pull-right"
-        %td= link_to '', life_venture_reasons_path, method: :delete, class:'glyphicon glyphicon-remove'
+        %td= link_to '', life_venture_reasons_path(@life_venture, reason), method: :delete, class:'glyphicon glyphicon-remove'

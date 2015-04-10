@@ -1,0 +1,17 @@
+.page-header
+  .pull-right
+
+    -if current_user
+      = link_to 'Your Ventures', life_ventures_path, class: "btn btn-success"
+    -else
+      = link_to 'New Ventures', sign_in_path, class: "btn btn-success"
+  %h1 Welcome!
+
+%body
+  %center
+    -if current_user
+      %h3 Click the "Your Ventures" button towards to the top right to start your path towards
+    -else
+      %h3 Click the "New Ventures" button towards to the top right to start your path towards
+
+    %img{:src => "https://appliedalliance.files.wordpress.com/2014/04/acheiving.jpg"}
