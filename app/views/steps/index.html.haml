@@ -8,15 +8,21 @@
   %li= link_to @life_venture.name, life_venture_path(@life_venture)
   %li Steps
 
-%table.table.table-striped
+%table.footable
   %thead
     %tr
       %th Description
       %th Due Date
+      %th Obstacles
       %th Progress
+      %th{"data-sort-ignore" => "true"}
+      %th{"data-sort-ignore" => "true"}
 
   - @steps.each do |step|
     %tr
-      %td= link_to step.name, life_venture_step_path(@life_venture, step)
+      %td= step.name
       %td= step.due_date.strftime("%B %d, %Y")
-      %td progress
+      %td= link_to step.obstacles.count, step_obstacles_path(step)
+      %td not YET
+      %td= link_to 'Edit', edit_life_venture_step_path(@life_venture, step), class: "btn btn-warning pull-right"
+      %td= link_to '', life_venture_steps_path, method: :delete, class:'glyphicon glyphicon-remove'

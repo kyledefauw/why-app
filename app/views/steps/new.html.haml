@@ -1,4 +1,9 @@
 .page-header
   %h1 Create New Step
 
-  =render "form"
+%ol.breadcrumb
+  %li= link_to "Life Ventures", life_ventures_path
+  %li= link_to @life_venture.name, life_venture_path(@life_venture)
+  %li New
+
+=render "form"
