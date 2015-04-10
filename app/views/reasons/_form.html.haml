@@ -10,7 +10,7 @@
       .form-group
         = f.label :priority, class:"col-md-4 control-label"
         .col-md-4
-          = f.collection_select(:priority, Reason.priorities.keys, :to_s, :to_s, {}, {class: "form-control"})
+          = f.collection_select(:priority, Reason::PRIORITY, :to_s, :to_s, {}, {class: "form-control"})
       .form-group
         .col-md-offset-4.col-md-4
           = f.submit class: "btn btn-success form-control"

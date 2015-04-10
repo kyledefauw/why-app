@@ -1,6 +1,12 @@
 .page-header
   .pull-right
-    = link_to 'Edit Reason', edit_life_venture_reason_path(@life_venture, @reason), class: "btn btn-info"
+    = link_to 'Delete', life_venture_reasons_path, method: :delete, class: "btn btn-danger"
   %h1 Reason
+
+  %ol.breadcrumb
+    %li= link_to "Life Ventures", life_ventures_path
+    %li= link_to @life_venture.name, life_venture_path(@life_venture)
+    %li= link_to @reason.name, life_venture_path(@life_venture, @reason)
+    %li Edit
 
   =render "form"

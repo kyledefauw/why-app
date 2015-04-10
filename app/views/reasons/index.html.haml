@@ -8,14 +8,18 @@
   %li= link_to @life_venture.name, life_venture_path(@life_venture)
   %li Reasons
 
-%table.table.table-striped
+%table.footable
   %thead
     %tr
       %th Description
       %th Priority
+      %th{"data-sort-ignore" => "true"}
+      %th{"data-sort-ignore" => "true"}
 
   %tbody
     - @reasons.each do |reason|
       %tr
-        %td= link_to reason.name, life_venture_reason_path(@life_venture, reason)
+        %td= reason.name
         %td= reason.priority
+        %td= link_to 'Edit', edit_life_venture_reason_path(@life_venture, reason), class: "btn btn-warning pull-right"
+        %td= link_to '', life_venture_reasons_path, method: :delete, class:'glyphicon glyphicon-remove'
