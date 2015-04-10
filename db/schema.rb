@@ -11,10 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150409183244) do
+ActiveRecord::Schema.define(version: 20150409225628) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+  end
 
   create_table "comments", force: :cascade do |t|
     t.text     "message"
@@ -32,6 +36,11 @@ ActiveRecord::Schema.define(version: 20150409183244) do
     t.integer  "user_id"
   end
 
+  create_table "life_ventures_categories", force: :cascade do |t|
+    t.integer "life_venture_id"
+    t.integer "category_id"
+  end
+
   create_table "obstacles", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
@@ -41,7 +50,7 @@ ActiveRecord::Schema.define(version: 20150409183244) do
 
   create_table "reasons", force: :cascade do |t|
     t.string   "name"
-    t.integer  "priority"
+    t.string   "priority"
     t.integer  "life_venture_id"
     t.datetime "created_at"
     t.datetime "updated_at"
