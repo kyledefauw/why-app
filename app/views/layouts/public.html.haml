@@ -5,12 +5,20 @@
   = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
   = javascript_include_tag 'application', 'data-turbolinks-track' => true
   = csrf_meta_tags
+%br
 
 %body
-  %nav.navbar.navbar-inverse.navbar-fixed-top
+  %nav.navbar.navbar-default.navbar-fixed-top
     .container
       .navbar-header
         = link_to "Why", root_path, class: "navbar-brand"
+      %ul.nav.navbar-nav.navbar-center
+        %li= link_to "Purpose", purpose_path
+        -if current_user
+          %ul.nav.navbar-nav.navbar-center
+            %li= link_to "Solve Obstacles", all_obstacles_path
+        -else
+          %li
       .collapse.navbar-collapse
         %ul.nav.navbar-nav.navbar-right
           - if current_user
@@ -22,20 +30,28 @@
   %br
   %br
   %br
+  %br
 
-  .container
+.container
 
-    - if flash[:notice]
-      %p.alert.alert-success
-        = flash[:notice]
+  - if flash[:notice]
+    %p.alert.alert-success
+      = flash[:notice]
 
-    - if flash[:error]
-      %p.alert.alert-danger
-        = flash[:error]
+  - if flash[:error]
+    %p.alert.alert-danger
+      = flash[:error]
 
-    = yield
+  = yield
 
-    %footer
-      %hr
-      = link_to "Life Ventures", life_ventures_path
-      | Copyright @ Why, Inc. 2015
+  %footer
+    %hr
+      %font{"color" => "#CCCC00"}
+        = link_to "Life Ventures", life_ventures_path
+        |
+        = link_to "Purpose", purpose_path
+        -if current_user
+          |
+          = link_to "Solve Obstacles", all_obstacles_path
+        .pull-right
+          Copyright @ Why is the Way 2015
