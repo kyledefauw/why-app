@@ -7,7 +7,7 @@ class LifeVenturesController < ApplicationController
       else
         []
       end
-      # @life_ventures = LifeVenture.find(:all, :conditions => {:user_id => session[:user_id]})
+
   end
 
   def new

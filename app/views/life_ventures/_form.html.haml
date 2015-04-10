@@ -11,7 +11,7 @@
       .form-group
         = f.label :category, class: "col-md-4 control-label"
         .col-md-4
-          = f.collection_select(:category, LifeVenture.categories.keys, :to_s, :to_s, {}, {class: "form-control"})
+          = f.collection_select(:category, LifeVenture::CATEGORIES, :to_s, :to_s, {}, {class: "form-control"})
       .form-group
         .col-md-offset-4.col-md-4
           = f.submit class: "btn btn-success form-control"
