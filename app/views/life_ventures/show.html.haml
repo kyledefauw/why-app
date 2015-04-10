@@ -1,17 +1,29 @@
 .page-header
   .pull-right
     = link_to 'Edit Venture', edit_life_venture_path(@life_venture), class: "btn btn-info"
+  %h1= @life_venture.name
 
-
-%table.footable
-  %thead
-    %tr
-      %th{"colspan" => "4"}
-        %h1= @life_venture.name
-
-  %tbody
-    %tr
-      %td= @life_venture.name
-      %td= @life_venture.category
-      %td= link_to @life_venture.reasons.count, life_venture_reasons_path(@life_venture)
-      %td= link_to @life_venture.steps.count, life_venture_steps_path(@life_venture)
+.row
+  .well.col-md-offset-3.col-md-6
+    %table
+      %tbody
+        %tr
+          %td.col-md-2.lvshow
+            %h4 Category
+          %td.col-md-2.lvshow= @life_venture.category
+          %td.col-md-2
+            %center= link_to "Change", edit_life_venture_path(@life_venture), class: "btn btn-warning"
+        %tr
+          %td.col-md-2.lvshow
+            %h4 # of Reasons
+          %td.col-md-2.lvshow
+            %center= link_to @life_venture.reasons.count, life_venture_reasons_path(@life_venture)
+          %td.col-md-2
+            %center= link_to "", new_life_venture_reason_path(@life_venture), class: "glyphicon glyphicon-plus"
+        %tr
+          %td.col-md-2.lvshow
+            %h4 # of Steps
+          %td.col-md-2.lvshow
+            %center= link_to @life_venture.steps.count, life_venture_steps_path(@life_venture)
+          %td.col-md-2
+            %center= link_to "", new_life_venture_step_path(@life_venture), class: "glyphicon glyphicon-plus"

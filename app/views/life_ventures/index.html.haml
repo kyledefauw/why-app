@@ -3,21 +3,21 @@
     = link_to 'New Venture', new_life_venture_path, class: "btn btn-success"
   %h1 Life Ventures
 
+.well
+  #page-wrap
+    -@life_ventures.each do |life_venture|
+      .info-col
+        %h4=link_to life_venture.name, life_venture_path(life_venture)
+        %dl
+          %dt Reasons
+          %dd
+            - life_venture.reasons.each do |reason|
+              %p= reason.name
 
-#page-wrap
-  -@life_ventures.each do |life_venture|
-    .info-col
-      %h4=link_to life_venture.name, life_venture_path(life_venture)
-      %dl
-        %dt Reasons
-        %dd
-          - life_venture.reasons.each do |reason|
-            %p= reason.name
+          %dt Steps
+          -life_venture.steps.each do |step|
+            %dd= step.name
 
-        %dt Steps
-        -life_venture.steps.each do |step|
-          %dd= step.name
-
-        %dt Obstacles
-        -life_venture.obstacles.each do |obstacle|
-          %dd= obstacle.name
+          %dt Obstacles
+          -life_venture.obstacles.each do |obstacle|
+            %dd= obstacle.name
