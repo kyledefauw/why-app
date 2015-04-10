@@ -14,3 +14,8 @@
 //= require jquery_ujs
 //= require bootstrap-sprockets
 //= require_tree .
+//= require footable
+//= require footable.sort
+//= require infogrid.js
+//= require multiaccordian.jquery.js
+//= require multiaccordian.jquery.min.js

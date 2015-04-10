@@ -15,3 +15,20 @@
  */
  @import "bootstrap-sprockets";
  @import "bootstrap";
+ @import "footable.core";
+ @import "themes/footable.metro";
+ @import "style";
+ @import "multiaccordian.jquery";
+ @import "multiaccordian.jquery.min";
+
+p.purpose {
+  color: blue;
+  font-family: Verdana;
+  font-size: 13px;
+}
+
+em.purpose {
+  color: green;
+  font-family: Copperplate;
+  font-size: 16px;
+}
